@@ -1,7 +1,4 @@
 import math
-import time
-from tkinter import *
-from Graphics.Bullet import Bullet
 
 
 class MotionController:
@@ -9,7 +6,7 @@ class MotionController:
     # acceleration of gravity
     g = 10
     # end of the field in pixels
-    x1i = 1000
+    x1i = 800
 
     def __init__(self):
         pass
