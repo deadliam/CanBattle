@@ -1,4 +1,5 @@
 import math
+from time import sleep
 
 
 class MotionController:
@@ -11,20 +12,16 @@ class MotionController:
     def __init__(self):
         pass
 
-    def __y(self, alpha, v0, x):
-        a = math.pi * alpha / 180
-        return (x * math.tan(a)) - ((x ** 2) * (self.g / (2 * (v0 ** 2) * (math.cos(a) ** 2))))
-
-    # x0i - cannon position
-    # v0 - start velocity
-    # alpha - start angle
-    def trajectory_coords(self, alpha, v0, x0i):
+    def trajectory_coords(self, alpha, v0):
         coords = []
-        for x in range(x0i, self.x1i):
-            xx = (x - x0i)
-            y = self.__y(alpha, v0, xx)
-            if y < 0:
+        t = 0
+        for i in range(1000):
+            # sleep(0.01)
+            t += 0.02
+            x = t * v0 * math.cos(math.radians(alpha))
+            y = v0 * math.sin(math.radians(alpha)) * t - (self.g / 2) * t * t
+            if y < -80:
                 break
-            coords.append(y)
-            # print(x, round(y))
+            coords.append([x, y])
+
         return coords

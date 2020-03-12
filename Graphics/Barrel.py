@@ -25,12 +25,6 @@ class Barrel:
         self.barr = self.canvas.create_line(self.x0, self.y0, round(self.coords[0]), round(self.coords[1]), fill="red", width=3)
         # print(self.x0, self.y0, round(coords[0]), round(coords[1]))
 
-    def increase_angle(self):
-        self.angle = self.angle + 1
-
-    def decrease_angle(self):
-        self.angle = self.angle - 1
-
     def remove_barrel(self):
         self.canvas.delete(self.barr)
 
