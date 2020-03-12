@@ -12,7 +12,8 @@ class MotionController:
         pass
 
     def __y(self, alpha, v0, x):
-        return (x * math.tan(alpha)) - ((x ** 2) * (self.g / (2 * (v0 ** 2) * (math.cos(alpha) ** 2))))
+        a = math.pi * alpha / 180
+        return (x * math.tan(a)) - ((x ** 2) * (self.g / (2 * (v0 ** 2) * (math.cos(a) ** 2))))
 
     # x0i - cannon position
     # v0 - start velocity
